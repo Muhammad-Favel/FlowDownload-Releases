@@ -10,6 +10,12 @@
         theme === "light" ? "Switch to dark theme" : "Switch to light theme"
       );
     }
+    document.querySelectorAll("#screenshots img[data-dark-src][data-light-src]").forEach((img) => {
+      const nextSrc = theme === "light" ? img.dataset.lightSrc : img.dataset.darkSrc;
+      if (nextSrc && img.getAttribute("src") !== nextSrc) {
+        img.setAttribute("src", nextSrc);
+      }
+    });
   };
   const savedTheme = localStorage.getItem("flowdownload-theme");
   const preferredTheme =
