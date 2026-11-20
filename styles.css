@@ -43,7 +43,7 @@
 
   --text-primary: #111827;
   --text-secondary: #4b5565;
-  --text-muted: #6b7487;
+  --text-muted: #525c70;
 
   --ok-green: #16a34a;
 
@@ -265,6 +265,7 @@ button {
   background-color: var(--bg-raised);
   border-color: var(--hairline);
   color: var(--text-primary);
+  white-space: nowrap;
 }
 
 .btn-nav:hover {
@@ -1238,6 +1239,19 @@ button {
 }
 
 @media (max-width: 640px) {
+  .header-inner {
+    gap: 12px;
+  }
+
+  .brand-name {
+    font-size: 15px;
+  }
+
+  .btn-nav {
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
   .site-nav {
     display: none;
   }

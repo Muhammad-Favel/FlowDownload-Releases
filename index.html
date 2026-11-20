@@ -136,28 +136,28 @@
                       <stop offset="100%" stop-color="#2DD4A8"/>
                     </linearGradient>
                   </defs>
-                  <path d="M 28 22 C 130 22, 165 44, 236 44" stroke="rgba(20,150,255,0.2)" stroke-width="2.5" stroke-linecap="round"/>
-                  <path d="M 28 66 C 130 66, 165 44, 236 44" stroke="rgba(45,212,168,0.2)" stroke-width="2.5" stroke-linecap="round"/>
-                  <path d="M 236 44 L 432 44" stroke="rgba(238,240,245,0.14)" stroke-width="3.5" stroke-linecap="round"/>
+                  <path d="M 28 24 C 130 24, 165 44, 236 44" stroke="rgba(20,150,255,0.22)" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M 28 64 C 130 64, 165 44, 236 44" stroke="rgba(45,212,168,0.22)" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M 236 44 L 432 44" stroke="var(--hairline-strong)" stroke-width="3.5" stroke-linecap="round"/>
 
-                  <path id="svgStreamWifi" class="flow-stream stream-wifi" d="M 28 22 C 130 22, 165 44, 236 44" stroke="#1496FF" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="12 16"/>
-                  <path id="svgStreamCell" class="flow-stream stream-cell" d="M 28 66 C 130 66, 165 44, 236 44" stroke="#2DD4A8" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="9 19"/>
+                  <path id="svgStreamWifi" class="flow-stream stream-wifi" d="M 28 24 C 130 24, 165 44, 236 44" stroke="#1496FF" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="12 16"/>
+                  <path id="svgStreamCell" class="flow-stream stream-cell" d="M 28 64 C 130 64, 165 44, 236 44" stroke="#2DD4A8" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="9 19"/>
                   <path id="svgStreamOut" class="flow-stream stream-merged" d="M 236 44 L 432 44" stroke="url(#mergeGrad)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="16 12"/>
 
-                  <circle cx="28" cy="22" r="7" fill="#0b0d14" stroke="#1496FF" stroke-width="1.8"/>
-                  <circle cx="28" cy="22" r="2.5" fill="#1496FF"/>
-                  <text x="42" y="25" fill="#a3a9b8" font-family="JetBrains Mono, monospace" font-size="9.5">en0 · Wi-Fi</text>
+                  <circle cx="28" cy="24" r="6.5" fill="var(--bg-card)" stroke="#1496FF" stroke-width="1.8"/>
+                  <circle cx="28" cy="24" r="2.5" fill="#1496FF"/>
+                  <text x="42" y="13" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="9.5">en0 · Wi-Fi</text>
 
-                  <circle cx="28" cy="66" r="7" fill="#0b0d14" stroke="#2DD4A8" stroke-width="1.8"/>
-                  <circle cx="28" cy="66" r="2.5" fill="#2DD4A8"/>
-                  <text x="42" y="69" fill="#a3a9b8" font-family="JetBrains Mono, monospace" font-size="9.5">pdp_ip0 · Cellular</text>
+                  <circle cx="28" cy="64" r="6.5" fill="var(--bg-card)" stroke="#2DD4A8" stroke-width="1.8"/>
+                  <circle cx="28" cy="64" r="2.5" fill="#2DD4A8"/>
+                  <text x="42" y="81" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="9.5">pdp_ip0 · Cellular</text>
 
-                  <rect x="218" y="28" width="36" height="32" rx="8" fill="#1a1e28" stroke="rgba(238,240,245,0.18)"/>
-                  <path d="M236 37v14m0 0-4.5-4.5m4.5 4.5 4.5-4.5" stroke="#eef0f5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="218" y="28" width="36" height="32" rx="8" fill="var(--bg-raised)" stroke="var(--hairline-strong)"/>
+                  <path d="M236 37v14m0 0-4.5-4.5m4.5 4.5 4.5-4.5" stroke="var(--text-primary)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
 
-                  <circle cx="432" cy="44" r="8" fill="#0b0d14" stroke="#eef0f5" stroke-width="1.6"/>
-                  <circle cx="432" cy="44" r="3" fill="#eef0f5"/>
-                  <text x="432" y="27" text-anchor="end" fill="#a3a9b8" font-family="JetBrains Mono, monospace" font-size="9.5">APFS / USB</text>
+                  <circle cx="432" cy="44" r="8" fill="var(--bg-card)" stroke="var(--text-primary)" stroke-width="1.6"/>
+                  <circle cx="432" cy="44" r="3" fill="var(--text-primary)"/>
+                  <text x="432" y="27" text-anchor="end" fill="var(--text-secondary)" font-family="JetBrains Mono, monospace" font-size="9.5">APFS / USB</text>
                 </svg>
 
                 <canvas id="waveformCanvas" class="waveform-canvas" width="440" height="44" aria-hidden="true"></canvas>
@@ -225,14 +225,14 @@
               <span class="pipe-tag mono">Network</span>
             </div>
             <svg class="pipe-vector" viewBox="0 0 220 76" fill="none" aria-hidden="true">
-              <rect x="8" y="12" width="76" height="20" rx="5" fill="#11141c" stroke="#1496FF" stroke-width="1.3"/>
-              <text x="46" y="25" text-anchor="middle" fill="#eef0f5" font-family="JetBrains Mono, monospace" font-size="9">Wi-Fi en0</text>
-              <rect x="8" y="44" width="76" height="20" rx="5" fill="#11141c" stroke="#2DD4A8" stroke-width="1.3"/>
-              <text x="46" y="57" text-anchor="middle" fill="#eef0f5" font-family="JetBrains Mono, monospace" font-size="9">Cell pdp0</text>
+              <rect x="8" y="12" width="76" height="20" rx="5" fill="var(--bg-card)" stroke="#1496FF" stroke-width="1.3"/>
+              <text x="46" y="25" text-anchor="middle" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="9">Wi-Fi en0</text>
+              <rect x="8" y="44" width="76" height="20" rx="5" fill="var(--bg-card)" stroke="#2DD4A8" stroke-width="1.3"/>
+              <text x="46" y="57" text-anchor="middle" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="9">Cell pdp0</text>
               <path d="M 88 22 C 132 22, 146 38, 184 38" stroke="#1496FF" stroke-width="2" stroke-dasharray="6 6" class="flow-stream"/>
               <path d="M 88 54 C 132 54, 146 38, 184 38" stroke="#2DD4A8" stroke-width="2" stroke-dasharray="6 6" class="flow-stream stream-cell"/>
-              <circle cx="194" cy="38" r="10" fill="#1a1e28" stroke="rgba(238,240,245,0.28)" stroke-width="1.3"/>
-              <circle cx="194" cy="38" r="3.5" fill="#eef0f5"/>
+              <circle cx="194" cy="38" r="10" fill="var(--bg-raised)" stroke="var(--hairline-strong)" stroke-width="1.3"/>
+              <circle cx="194" cy="38" r="3.5" fill="var(--text-primary)"/>
             </svg>
             <h3>Dual-interface dispatch</h3>
             <p>Assigns byte-range chunks and torrent peer sockets explicitly across Wi-Fi (<code>en0</code>) and Cellular (<code>pdp_ip0</code>).</p>
@@ -244,12 +244,12 @@
               <span class="pipe-tag mono">Buffer</span>
             </div>
             <svg class="pipe-vector" viewBox="0 0 220 76" fill="none" aria-hidden="true">
-              <rect x="12" y="16" width="196" height="44" rx="8" fill="#11141c" stroke="rgba(238,240,245,0.16)"/>
-              <rect x="20" y="24" width="38" height="28" rx="4" fill="#1496FF" fill-opacity="0.85"/>
-              <rect x="62" y="24" width="26" height="28" rx="4" fill="#2DD4A8" fill-opacity="0.85"/>
+              <rect x="12" y="16" width="196" height="44" rx="8" fill="var(--bg-card)" stroke="var(--hairline-strong)"/>
+              <rect x="20" y="24" width="38" height="28" rx="4" fill="#1496FF" fill-opacity="0.88"/>
+              <rect x="62" y="24" width="26" height="28" rx="4" fill="#2DD4A8" fill-opacity="0.88"/>
               <rect x="92" y="24" width="46" height="28" rx="4" fill="#1496FF" fill-opacity="0.65"/>
               <rect x="142" y="24" width="24" height="28" rx="4" fill="#2DD4A8" fill-opacity="0.65"/>
-              <rect x="170" y="24" width="30" height="28" rx="4" fill="rgba(238,240,245,0.1)"/>
+              <rect x="170" y="24" width="30" height="28" rx="4" fill="var(--hairline-strong)"/>
             </svg>
             <h3>APFS RAM &amp; staging buffer</h3>
             <p>Coalesces out-of-order chunks on fast internal APFS so network sockets never block on slow external drives.</p>
@@ -261,11 +261,11 @@
               <span class="pipe-tag mono">Verify</span>
             </div>
             <svg class="pipe-vector" viewBox="0 0 220 76" fill="none" aria-hidden="true">
-              <rect x="14" y="24" width="84" height="28" rx="5" fill="#11141c" stroke="rgba(238,240,245,0.18)"/>
-              <text x="56" y="41" text-anchor="middle" fill="#a3a9b8" font-family="JetBrains Mono, monospace" font-size="9">4 MiB seq</text>
-              <path d="M 102 38 L 150 38" stroke="#4cc38a" stroke-width="2" stroke-dasharray="5 5" class="flow-stream"/>
-              <rect x="156" y="18" width="48" height="40" rx="8" fill="#11141c" stroke="#4cc38a" stroke-width="1.4"/>
-              <path d="m171 38 5 5 11-11" stroke="#4cc38a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="14" y="24" width="84" height="28" rx="5" fill="var(--bg-card)" stroke="var(--hairline-strong)"/>
+              <text x="56" y="41" text-anchor="middle" fill="var(--text-primary)" font-family="JetBrains Mono, monospace" font-size="9">4 MiB seq</text>
+              <path d="M 102 38 L 150 38" stroke="var(--ok-green)" stroke-width="2" stroke-dasharray="5 5" class="flow-stream"/>
+              <rect x="156" y="18" width="48" height="40" rx="8" fill="var(--bg-card)" stroke="var(--ok-green)" stroke-width="1.4"/>
+              <path d="m171 38 5 5 11-11" stroke="var(--ok-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <h3>Sequential USB &amp; SHA-256</h3>
             <p>Streams sequential 4 MiB blocks to Lightning/USB-C drives and validates SHA-256 integrity on completion.</p>
