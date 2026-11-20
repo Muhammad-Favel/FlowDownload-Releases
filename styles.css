@@ -901,6 +901,45 @@ button {
   color: var(--text-secondary);
 }
 
+/* Screenshots */
+.shots-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  perspective: 1000px;
+}
+
+.shot-card {
+  margin: 0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform-style: preserve-3d;
+  transition: transform 220ms var(--ease), border-color 220ms var(--ease);
+}
+
+.shot-card:hover {
+  border-color: var(--hairline-strong);
+}
+
+.shot-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid var(--hairline);
+}
+
+.shot-card figcaption {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
 /* Install */
 .install-panel {
   background-color: var(--bg-card);
@@ -1132,6 +1171,10 @@ button {
   .cap-wide {
     grid-column: span 3;
   }
+
+  .shots-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 640px) {
@@ -1175,6 +1218,19 @@ button {
   .cap-card,
   .cap-wide {
     grid-column: span 6;
+  }
+
+  .shots-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    padding-bottom: 8px;
+  }
+
+  .shot-card {
+    flex: 0 0 66%;
+    scroll-snap-align: start;
   }
 
   .install-tabs {

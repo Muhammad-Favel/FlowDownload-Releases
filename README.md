@@ -28,6 +28,17 @@
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="assets/screenshots/boost-direct.jpg" alt="Direct Boost 13.9 MB/s" width="180" />
+  <img src="assets/screenshots/boost-torrent.jpg" alt="Torrent Boost 70 peers" width="180" />
+  <img src="assets/screenshots/browser.jpg" alt="Flow Browser" width="180" />
+  <img src="assets/screenshots/settings-storage.jpg" alt="Storage and USB settings" width="180" />
+</p>
+
+---
+
 ## Key Capabilities
 
 | Feature | What it does |

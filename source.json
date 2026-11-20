@@ -19,7 +19,13 @@
       "iconURL": "https://muhammad-favel.github.io/FlowDownload-Releases/assets/app-icon.png",
       "tintColor": "#1496FF",
       "category": "utilities",
-      "screenshots": [],
+      "screenshots": [
+        "https://muhammad-favel.github.io/FlowDownload-Releases/assets/screenshots/boost-direct.jpg",
+        "https://muhammad-favel.github.io/FlowDownload-Releases/assets/screenshots/boost-torrent.jpg",
+        "https://muhammad-favel.github.io/FlowDownload-Releases/assets/screenshots/browser.jpg",
+        "https://muhammad-favel.github.io/FlowDownload-Releases/assets/screenshots/settings-storage.jpg",
+        "https://muhammad-favel.github.io/FlowDownload-Releases/assets/screenshots/file-verified.jpg"
+      ],
       "versions": [
         {
           "version": "1.0.0",
