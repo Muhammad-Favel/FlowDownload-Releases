@@ -1017,6 +1017,12 @@ button {
   color: var(--text-muted);
 }
 
+.install-hint {
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
 /* FAQ */
 .faq-list {
   display: flex;
