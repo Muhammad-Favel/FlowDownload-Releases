@@ -75,17 +75,6 @@
     })
     .catch(() => {});
 
-  // Scroll progress hairline
-  const scrollProgress = document.getElementById("scrollProgress");
-  const updateScrollProgress = () => {
-    if (!scrollProgress) return;
-    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const ratio = Math.min(1, Math.max(0, window.scrollY / maxScroll));
-    scrollProgress.style.transform = `scaleX(${ratio.toFixed(4)})`;
-  };
-  window.addEventListener("scroll", updateScrollProgress, { passive: true });
-  updateScrollProgress();
-
   // Scroll reveal + benchmark animation
   const revealNodes = document.querySelectorAll("[data-reveal]");
   const animateBenchmark = () => {
@@ -132,21 +121,6 @@
     });
   }
 
-  // Subtle 3D hover tilt on pipeline and capability cards
-  if (window.matchMedia("(pointer: fine)").matches) {
-    document.querySelectorAll("[data-tilt]").forEach((card) => {
-      card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const nx = (e.clientX - rect.left) / rect.width - 0.5;
-        const ny = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = `rotateY(${(nx * 6).toFixed(2)}deg) rotateX(${(-ny * 6).toFixed(2)}deg) translateY(-2px)`;
-      });
-      card.addEventListener("mouseleave", () => {
-        card.style.transform = "";
-      });
-    });
-  }
-
   // Mobile nav toggle
   const menuToggle = document.getElementById("menuToggle");
   const mobileNav = document.getElementById("mobileNav");
@@ -156,42 +130,6 @@
       mobileNav.hidden = !open;
       menuToggle.setAttribute("aria-expanded", String(open));
     });
-  }
-
-  // Live Dual-Lane Waveform Canvas
-  let activeMode = "boost";
-  const canvas = document.getElementById("waveformCanvas");
-  if (canvas && canvas.getContext) {
-    const ctx = canvas.getContext("2d");
-    let phase = 0;
-    const drawWave = () => {
-      const w = canvas.width;
-      const h = canvas.height;
-      ctx.clearRect(0, 0, w, h);
-
-      const showWifi = activeMode === "wifi" || activeMode === "boost";
-      const showCell = activeMode === "cellular" || activeMode === "boost";
-
-      const renderLane = (color, amp, freq, speedOffset) => {
-        ctx.beginPath();
-        for (let x = 0; x <= w; x += 6) {
-          const env = Math.sin((x / w) * Math.PI);
-          const y = h * 0.55 + Math.sin(x * freq + phase * speedOffset) * amp * env + Math.cos(x * freq * 0.5 - phase) * (amp * 0.35);
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 1.8;
-        ctx.stroke();
-      };
-
-      if (showWifi) renderLane("#1496FF", activeMode === "boost" ? 9 : 8, 0.032, 1.35);
-      if (showCell) renderLane("#2DD4A8", activeMode === "boost" ? 5.5 : 6, 0.044, 0.95);
-
-      phase += 0.045;
-      window.requestAnimationFrame(drawWave);
-    };
-    window.requestAnimationFrame(drawWave);
   }
 
   // Hero Boost mode preview switcher + SVG stream state
@@ -242,7 +180,6 @@
       const mode = tab.dataset.mode;
       const snap = modeSnapshots[mode];
       if (!snap) return;
-      activeMode = mode;
 
       document.querySelectorAll(".lane-tab").forEach((btn) => {
         const active = btn === tab;
