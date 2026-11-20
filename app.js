@@ -1,4 +1,30 @@
 (() => {
+  // Theme switcher (Ink Dark / Ink Light)
+  const root = document.documentElement;
+  const themeToggle = document.getElementById("themeToggle");
+  const applyTheme = (theme) => {
+    root.setAttribute("data-theme", theme);
+    if (themeToggle) {
+      themeToggle.setAttribute(
+        "aria-label",
+        theme === "light" ? "Switch to dark theme" : "Switch to light theme"
+      );
+    }
+  };
+  const savedTheme = localStorage.getItem("flowdownload-theme");
+  const preferredTheme =
+    savedTheme ||
+    (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+  applyTheme(preferredTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      localStorage.setItem("flowdownload-theme", next);
+      applyTheme(next);
+    });
+  }
+
   const repoURL = new URL("source.json", window.location.href).href;
   const repoUrlText = document.getElementById("repoUrlText");
   if (repoUrlText) {
