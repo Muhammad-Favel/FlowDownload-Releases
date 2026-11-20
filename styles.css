@@ -88,7 +88,7 @@ button {
   position: sticky;
   top: 0;
   z-index: 40;
-  background-color: rgba(11, 13, 20, 0.86);
+  background-color: rgba(11, 13, 20, 0.88);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--hairline);
 }
@@ -259,7 +259,7 @@ button {
 /* Hero + 3D Stage */
 .hero {
   position: relative;
-  padding: 68px 0 84px;
+  padding: 64px 0 80px;
   overflow: hidden;
 }
 
@@ -277,41 +277,18 @@ button {
   bottom: -140px;
   height: 420px;
   background-image:
-    linear-gradient(to right, rgba(238, 240, 245, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(238, 240, 245, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(238, 240, 245, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(238, 240, 245, 0.045) 1px, transparent 1px);
   background-size: 48px 48px;
-  transform: perspective(600px) rotateX(62deg);
-  mask-image: radial-gradient(ellipse 70% 70% at 62% 35%, black 15%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 62% 35%, black 15%, transparent 75%);
-}
-
-.ambient-arc {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.14;
-}
-
-.arc-wifi {
-  width: 420px;
-  height: 420px;
-  right: 12%;
-  top: -80px;
-  background: var(--wifi-blue);
-}
-
-.arc-cell {
-  width: 360px;
-  height: 360px;
-  right: 4%;
-  bottom: -60px;
-  background: var(--cell-teal);
+  transform: perspective(640px) rotateX(62deg);
+  mask-image: radial-gradient(ellipse 72% 72% at 62% 35%, black 15%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 72% 72% at 62% 35%, black 15%, transparent 75%);
 }
 
 .hero-grid {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.96fr 1.04fr;
   gap: 48px;
   align-items: center;
 }
@@ -327,7 +304,7 @@ button {
   gap: 10px;
   font-size: 12px;
   color: var(--text-muted);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .dual-dot {
@@ -347,10 +324,10 @@ button {
 .dot-cell { background-color: var(--cell-teal); }
 
 .hero-copy h1 {
-  margin: 0 0 20px;
-  font-size: clamp(34px, 4.2vw, 52px);
-  line-height: 1.06;
-  letter-spacing: -0.025em;
+  margin: 0 0 16px;
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
   font-weight: 500;
   color: var(--text-primary);
 }
@@ -387,83 +364,17 @@ button {
   color: var(--text-primary);
 }
 
-/* 3D Hero Stage */
+/* Unified 3D App Window */
 .hero-stage {
   perspective: 1200px;
 }
 
 .stage-3d {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
   transform-style: preserve-3d;
   transform: rotateY(var(--rx, -5deg)) rotateX(var(--ry, 3deg));
   transition: transform 240ms var(--ease);
 }
 
-.vector-flow-card {
-  background-color: rgba(17, 20, 28, 0.92);
-  border: 1px solid var(--hairline-strong);
-  border-radius: var(--radius-lg);
-  padding: 10px 14px;
-  transform: translateZ(18px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-}
-
-.vector-flow-svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.flow-stream {
-  animation: streamDash 1.3s linear infinite;
-}
-
-.stream-cell {
-  animation-duration: 1.85s;
-}
-
-.stream-merged {
-  animation-duration: 0.95s;
-}
-
-@keyframes streamDash {
-  from {
-    stroke-dashoffset: 64;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.floating-hud {
-  position: absolute;
-  right: 14px;
-  top: 98px;
-  z-index: 4;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background-color: var(--bg-raised);
-  border: 1px solid var(--hairline-strong);
-  font-size: 12px;
-  color: var(--text-primary);
-  transform: translateZ(38px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
-}
-
-.hud-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--ok-green);
-}
-
-/* App Window Preview */
 .app-window {
   background-color: var(--bg-card);
   border: 1px solid var(--hairline-strong);
@@ -472,8 +383,9 @@ button {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transform: translateZ(8px);
-  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 28px 64px rgba(0, 0, 0, 0.52);
 }
 
 .window-bar {
@@ -481,7 +393,7 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 4px 4px 8px;
+  padding: 2px 2px 6px;
 }
 
 .window-title {
@@ -523,20 +435,86 @@ button {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
+/* Integrated Telemetry Deck (Vector Stream + Waveform) */
+.telemetry-deck {
+  background-color: var(--bg-deep);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  padding: 12px 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform: translateZ(14px);
+}
+
+.telemetry-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.telemetry-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.telemetry-speed {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.vector-flow-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.flow-stream {
+  animation: streamDash 1.25s linear infinite;
+}
+
+.stream-cell {
+  animation-duration: 1.75s;
+}
+
+.stream-merged {
+  animation-duration: 0.9s;
+}
+
+@keyframes streamDash {
+  from {
+    stroke-dashoffset: 56;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.waveform-canvas {
+  width: 100%;
+  height: 44px;
+  display: block;
+  border-top: 1px solid var(--hairline);
+  padding-top: 6px;
+}
+
 .transfer-card {
   background-color: var(--bg-page);
   border: 1px solid var(--hairline);
   border-radius: var(--radius-lg);
-  padding: 16px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .transfer-card.is-active {
   background-color: var(--bg-raised);
   border-color: var(--hairline-strong);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateZ(10px);
 }
 
 .transfer-top {
@@ -567,20 +545,19 @@ button {
   color: var(--text-muted);
 }
 
-.transfer-speed {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--text-primary);
+.transfer-badge {
+  font-size: 12px;
+  color: var(--text-secondary);
+  background-color: var(--bg-deep);
+  border: 1px solid var(--hairline);
+  padding: 3px 8px;
+  border-radius: 6px;
   white-space: nowrap;
 }
 
 .transfer-status {
   font-size: 12px;
   color: var(--text-secondary);
-}
-
-.status-ok {
-  color: var(--ok-green);
 }
 
 .dual-bar,
@@ -708,15 +685,31 @@ button {
   border-color: var(--hairline-strong);
 }
 
+.pipe-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 .pipe-step {
   font-size: 12px;
   color: var(--text-muted);
 }
 
+.pipe-tag {
+  font-size: 11px;
+  color: var(--text-secondary);
+  background-color: var(--bg-raised);
+  border: 1px solid var(--hairline);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
 .pipe-vector {
   width: 100%;
   height: auto;
-  background-color: var(--bg-page);
+  background-color: var(--bg-deep);
   border: 1px solid var(--hairline);
   border-radius: var(--radius-md);
   padding: 6px;
@@ -944,6 +937,7 @@ button {
   font-weight: 500;
   color: var(--text-muted);
   border-radius: 6px;
+  white-space: nowrap;
   transition: background-color 150ms var(--ease), color 150ms var(--ease);
 }
 
@@ -1122,12 +1116,6 @@ button {
     transform: none;
   }
 
-  .floating-hud {
-    position: static;
-    align-self: flex-start;
-    transform: none;
-  }
-
   .benchmark-summary {
     padding-left: 0;
     padding-top: 16px;
@@ -1156,7 +1144,11 @@ button {
   }
 
   .hero {
-    padding: 44px 0 56px;
+    padding: 40px 0 52px;
+  }
+
+  .section {
+    padding: 48px 0;
   }
 
   .window-bar {
@@ -1186,8 +1178,15 @@ button {
   }
 
   .install-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    flex-wrap: wrap;
+  }
+
+  .install-tab {
+    text-align: center;
+    padding: 7px 6px;
+    font-size: 12px;
   }
 
   .repo-url-bar {

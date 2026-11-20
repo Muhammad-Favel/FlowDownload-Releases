@@ -6,7 +6,7 @@
   }
 
   const formatBytes = (bytes) => {
-    if (!bytes || Number.isNaN(bytes)) return "24.8 MB";
+    if (!bytes || Number.isNaN(bytes)) return "56.0 MB";
     return `${(bytes / 1_000_000).toFixed(1)} MB`;
   };
 
@@ -132,11 +132,48 @@
     });
   }
 
+  // Live Dual-Lane Waveform Canvas
+  let activeMode = "boost";
+  const canvas = document.getElementById("waveformCanvas");
+  if (canvas && canvas.getContext) {
+    const ctx = canvas.getContext("2d");
+    let phase = 0;
+    const drawWave = () => {
+      const w = canvas.width;
+      const h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      const showWifi = activeMode === "wifi" || activeMode === "boost";
+      const showCell = activeMode === "cellular" || activeMode === "boost";
+
+      const renderLane = (color, amp, freq, speedOffset) => {
+        ctx.beginPath();
+        for (let x = 0; x <= w; x += 6) {
+          const env = Math.sin((x / w) * Math.PI);
+          const y = h * 0.55 + Math.sin(x * freq + phase * speedOffset) * amp * env + Math.cos(x * freq * 0.5 - phase) * (amp * 0.35);
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1.8;
+        ctx.stroke();
+      };
+
+      if (showWifi) renderLane("#1496FF", activeMode === "boost" ? 9 : 8, 0.032, 1.35);
+      if (showCell) renderLane("#2DD4A8", activeMode === "boost" ? 5.5 : 6, 0.044, 0.95);
+
+      phase += 0.045;
+      window.requestAnimationFrame(drawWave);
+    };
+    window.requestAnimationFrame(drawWave);
+  }
+
   // Hero Boost mode preview switcher + SVG stream state
   const modeSnapshots = {
     wifi: {
       meta: "233.9 MB / 1.82 GB · Wi-Fi only (BN-01)",
       total: "6.44 MB/s",
+      pct: "13%",
       wifi: "6.44 MB/s",
       cell: "0.00 MB/s",
       conn: "1 active · Wi-Fi",
@@ -149,6 +186,7 @@
     cellular: {
       meta: "70.0 MB / 1.82 GB · Cellular only (BN-02)",
       total: "1.51 MB/s",
+      pct: "4%",
       wifi: "0.00 MB/s",
       cell: "1.51 MB/s",
       conn: "1 active · Cellular",
@@ -161,6 +199,7 @@
     boost: {
       meta: "405.6 MB / 1.82 GB · Direct Boost (BN-03)",
       total: "7.80 MB/s",
+      pct: "22%",
       wifi: "6.48 MB/s",
       cell: "1.32 MB/s",
       conn: "6 active · 57 reused",
@@ -177,6 +216,7 @@
       const mode = tab.dataset.mode;
       const snap = modeSnapshots[mode];
       if (!snap) return;
+      activeMode = mode;
 
       document.querySelectorAll(".lane-tab").forEach((btn) => {
         const active = btn === tab;
@@ -186,6 +226,7 @@
 
       document.getElementById("previewFileMeta").textContent = snap.meta;
       document.getElementById("previewTotalSpeed").textContent = snap.total;
+      document.getElementById("previewPct").textContent = snap.pct;
       document.getElementById("previewWifiSpeed").textContent = snap.wifi;
       document.getElementById("previewCellSpeed").textContent = snap.cell;
       document.getElementById("previewConn").textContent = snap.conn;
