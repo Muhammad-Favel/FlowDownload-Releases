@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowDownload — Multi-path iOS download manager and torrent client</title>
+  <meta name="description" content="Combine Wi-Fi and Cellular into one iOS download stream, run native torrents, and write directly to external USB storage.">
+  <link rel="icon" type="image/png" href="assets/app-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="FlowDownload home">
+        <img class="brand-icon" src="assets/app-icon.png" alt="FlowDownload icon" width="28" height="28">
+        <span class="brand-name">FlowDownload</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#pipeline">Architecture</a>
+        <a href="#boost">Boost</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#install">Install</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-nav" href="#install">Get IPA</a>
+        <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" id="menuToggle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <a href="#pipeline">Architecture</a>
+      <a href="#boost">Boost</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#install">Install</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-backdrop" aria-hidden="true">
+        <div class="grid-floor"></div>
+        <div class="ambient-arc arc-wifi"></div>
+        <div class="ambient-arc arc-cell"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="version-meta">
+            <span class="dual-dot" aria-hidden="true"><i class="dot-wifi"></i><i class="dot-cell"></i></span>
+            <span class="mono" id="heroVersion">v1.0.0 · iOS 16+ · IPA</span>
+          </div>
+
+          <h1>Combine Wi-Fi and Cellular into one iOS download stream</h1>
+
+          <p class="hero-subhead">
+            FlowDownload bonds both radios for direct HTTP and torrent transfers, stages large files safely on APFS before exporting to external USB drives, and verifies SHA-256 checksums.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" id="sidestoreBtn" href="#install">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v12"></path>
+                <path d="m7 10 5 5 5-5"></path>
+                <path d="M5 21h14"></path>
+              </svg>
+              <span>Add to SideStore</span>
+            </a>
+            <a class="btn btn-secondary" id="directIpaBtn" href="#install">
+              <span>Download IPA</span>
+              <span class="mono btn-meta" id="heroSize">24.8 MB</span>
+            </a>
+          </div>
+
+          <p class="hero-note">
+            Also supports <a href="#install" class="text-link">AltStore</a> and <a href="#install" class="text-link">TrollStore</a> · Built for iPhone &amp; iPad
+          </p>
+        </div>
+
+        <div class="hero-stage" id="heroStage">
+          <div class="stage-3d" id="stage3d">
+            <!-- Animated Vector Dual-Stream Flow Schematic -->
+            <div class="vector-flow-card" aria-hidden="true">
+              <svg class="vector-flow-svg" viewBox="0 0 460 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="mergeGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#1496FF"/>
+                    <stop offset="50%" stop-color="#20B5D3"/>
+                    <stop offset="100%" stop-color="#2DD4A8"/>
+                  </linearGradient>
+                </defs>
+                <!-- Base tracks -->
+                <path d="M 36 28 C 145 28, 175 59, 250 59" stroke="rgba(20,150,255,0.22)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 36 90 C 145 90, 175 59, 250 59" stroke="rgba(45,212,168,0.22)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 250 59 L 424 59" stroke="rgba(238,240,245,0.16)" stroke-width="4" stroke-linecap="round"/>
+
+                <!-- Animated packet streams -->
+                <path id="svgStreamWifi" class="flow-stream stream-wifi" d="M 36 28 C 145 28, 175 59, 250 59" stroke="#1496FF" stroke-width="3" stroke-linecap="round" stroke-dasharray="14 18"/>
+                <path id="svgStreamCell" class="flow-stream stream-cell" d="M 36 90 C 145 90, 175 59, 250 59" stroke="#2DD4A8" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 22"/>
+                <path id="svgStreamOut" class="flow-stream stream-merged" d="M 250 59 L 424 59" stroke="url(#mergeGrad)" stroke-width="4" stroke-linecap="round" stroke-dasharray="18 14"/>
+
+                <!-- Nodes -->
+                <circle cx="36" cy="28" r="10" fill="#11141c" stroke="#1496FF" stroke-width="2"/>
+                <circle cx="36" cy="28" r="3.5" fill="#1496FF"/>
+                <text x="54" y="24" fill="#eef0f5" font-family="JetBrains Mono, monospace" font-size="10">Wi-Fi</text>
+                <text x="54" y="36" fill="#7a8296" font-family="JetBrains Mono, monospace" font-size="9">en0</text>
+
+                <circle cx="36" cy="90" r="10" fill="#11141c" stroke="#2DD4A8" stroke-width="2"/>
+                <circle cx="36" cy="90" r="3.5" fill="#2DD4A8"/>
+                <text x="54" y="86" fill="#eef0f5" font-family="JetBrains Mono, monospace" font-size="10">Cellular</text>
+                <text x="54" y="98" fill="#7a8296" font-family="JetBrains Mono, monospace" font-size="9">pdp_ip0</text>
+
+                <!-- Merge Hub -->
+                <rect x="228" y="41" width="44" height="36" rx="10" fill="#1a1e28" stroke="rgba(238,240,245,0.2)"/>
+                <path d="M244 52v14m0 0-5-5m5 5 5-5" stroke="#eef0f5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="250" y="92" text-anchor="middle" fill="#7a8296" font-family="JetBrains Mono, monospace" font-size="9">Scheduler</text>
+
+                <!-- Output -->
+                <circle cx="424" cy="59" r="11" fill="#11141c" stroke="#eef0f5" stroke-width="1.8"/>
+                <circle cx="424" cy="59" r="4" fill="#eef0f5"/>
+                <text x="424" y="38" text-anchor="end" fill="#eef0f5" font-family="JetBrains Mono, monospace" font-size="10">iOS / USB</text>
+              </svg>
+            </div>
+
+            <!-- Floating 3D HUD Pill -->
+            <div class="floating-hud" aria-hidden="true">
+              <span class="hud-dot"></span>
+              <span class="mono" id="hudEfficiency">98% radio aggregation</span>
+            </div>
+
+            <!-- Main 3D App Window -->
+            <div class="app-window" aria-label="FlowDownload active transfer preview">
+              <div class="window-bar">
+                <div class="window-title">
+                  <img src="assets/app-icon.png" alt="" width="18" height="18">
+                  <span>Transfers</span>
+                </div>
+                <div class="lane-switcher" role="tablist" aria-label="Preview transport mode">
+                  <button type="button" class="lane-tab" data-mode="wifi" role="tab" aria-selected="false">Wi-Fi</button>
+                  <button type="button" class="lane-tab" data-mode="cellular" role="tab" aria-selected="false">Cellular</button>
+                  <button type="button" class="lane-tab is-active" data-mode="boost" role="tab" aria-selected="true">Boost</button>
+                </div>
+              </div>
+
+              <div class="transfer-card is-active">
+                <div class="transfer-top">
+                  <div class="transfer-file">
+                    <span class="file-name">Ubuntu-24.04-Server-arm64.iso</span>
+                    <span class="file-meta mono" id="previewFileMeta">405.6 MB / 1.82 GB · Direct Boost</span>
+                  </div>
+                  <div class="transfer-speed mono" id="previewTotalSpeed">7.80 MB/s</div>
+                </div>
+
+                <div class="dual-bar" aria-label="Wi-Fi and Cellular lane share">
+                  <div class="bar-wifi" id="previewBarWifi" style="width: 66%;"></div>
+                  <div class="bar-cell" id="previewBarCell" style="width: 14%;"></div>
+                </div>
+
+                <div class="lane-metrics">
+                  <div class="lane-stat">
+                    <span class="lane-label"><i class="swatch-wifi"></i>Wi-Fi lane</span>
+                    <span class="mono lane-val" id="previewWifiSpeed">6.48 MB/s</span>
+                  </div>
+                  <div class="lane-stat">
+                    <span class="lane-label"><i class="swatch-cell"></i>Cellular lane</span>
+                    <span class="mono lane-val" id="previewCellSpeed">1.32 MB/s</span>
+                  </div>
+                  <div class="lane-stat">
+                    <span class="lane-label">Connections</span>
+                    <span class="mono lane-val" id="previewConn">6 active · 57 reused</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="transfer-card">
+                <div class="transfer-top">
+                  <div class="transfer-file">
+                    <span class="file-name">Blender-4.2-macOS-arm64.dmg</span>
+                    <span class="file-meta mono">1.12 GB · Staged APFS -&gt; External USB</span>
+                  </div>
+                  <div class="transfer-status mono">Exporting</div>
+                </div>
+                <div class="single-bar">
+                  <div class="bar-neutral" style="width: 78%;"></div>
+                </div>
+              </div>
+
+              <div class="transfer-card">
+                <div class="transfer-top">
+                  <div class="transfer-file">
+                    <span class="file-name">Debian-12.8-netinst.torrent</span>
+                    <span class="file-meta mono">628 MB · 24 peers · SHA-256 verified</span>
+                  </div>
+                  <div class="transfer-status status-ok mono">Done</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scroll-Animated 3D Pipeline Section -->
+    <section class="section" id="pipeline">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2>How the multi-path pipeline moves data</h2>
+          <p>Three coordinated stages keep both radios saturated while protecting slow flash storage from write stalls.</p>
+        </div>
+
+        <div class="pipeline-grid">
+          <div class="pipe-card" data-reveal data-tilt>
+            <div class="pipe-step mono">01</div>
+            <svg class="pipe-vector" viewBox="0 0 180 68" fill="none" aria-hidden="true">
+              <rect x="8" y="10" width="70" height="18" rx="4" fill="#1a1e28" stroke="#1496FF" stroke-width="1.4"/>
+              <rect x="8" y="40" width="52" height="18" rx="4" fill="#1a1e28" stroke="#2DD4A8" stroke-width="1.4"/>
+              <path d="M 82 19 L 166 19" stroke="#1496FF" stroke-width="2" stroke-dasharray="6 6" class="flow-stream"/>
+              <path d="M 64 49 L 166 49" stroke="#2DD4A8" stroke-width="2" stroke-dasharray="6 6" class="flow-stream"/>
+              <circle cx="168" cy="34" r="6" fill="#eef0f5"/>
+            </svg>
+            <h3>Dual-interface dispatch</h3>
+            <p>Assigns byte-range chunks and torrent peer sockets explicitly across Wi-Fi (<code>en0</code>) and Cellular (<code>pdp_ip0</code>).</p>
+          </div>
+
+          <div class="pipe-card" data-reveal data-tilt>
+            <div class="pipe-step mono">02</div>
+            <svg class="pipe-vector" viewBox="0 0 180 68" fill="none" aria-hidden="true">
+              <rect x="12" y="14" width="156" height="40" rx="8" fill="#1a1e28" stroke="rgba(238,240,245,0.16)"/>
+              <rect x="20" y="22" width="32" height="24" rx="4" fill="#1496FF" fill-opacity="0.85"/>
+              <rect x="56" y="22" width="24" height="24" rx="4" fill="#2DD4A8" fill-opacity="0.85"/>
+              <rect x="84" y="22" width="36" height="24" rx="4" fill="#1496FF" fill-opacity="0.65"/>
+              <rect x="124" y="22" width="36" height="24" rx="4" fill="rgba(238,240,245,0.12)"/>
+            </svg>
+            <h3>APFS RAM &amp; staging buffer</h3>
+            <p>Coalesces out-of-order chunks on fast internal APFS so network sockets never block on slow external drives.</p>
+          </div>
+
+          <div class="pipe-card" data-reveal data-tilt>
+            <div class="pipe-step mono">03</div>
+            <svg class="pipe-vector" viewBox="0 0 180 68" fill="none" aria-hidden="true">
+              <rect x="14" y="22" width="76" height="24" rx="5" fill="#1a1e28" stroke="rgba(238,240,245,0.18)"/>
+              <path d="M 94 34 L 128 34" stroke="#4cc38a" stroke-width="2" stroke-dasharray="5 5" class="flow-stream"/>
+              <rect x="132" y="16" width="34" height="36" rx="6" fill="#1a1e28" stroke="#4cc38a" stroke-width="1.4"/>
+              <path d="m143 34 4 4 8-8" stroke="#4cc38a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>Sequential USB &amp; SHA-256</h3>
+            <p>Streams sequential 4 MiB blocks to Lightning/USB-C drives and verifies SHA-256 integrity on completion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="boost">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2>Measured dual-radio throughput</h2>
+          <p>Benchmarked on iPhone 12 Pro over live Wi-Fi and Cellular links (BN-01 to BN-03), reaching 98% of the combined single-radio sum.</p>
+        </div>
+
+        <div class="benchmark-panel" data-reveal id="benchmarkPanel">
+          <div class="benchmark-bars">
+            <div class="bench-row">
+              <div class="bench-label">
+                <span>Wi-Fi only</span>
+                <span class="mono bench-id">BN-01</span>
+              </div>
+              <div class="bench-track">
+                <div class="bench-fill fill-wifi anim-bar" data-width="82.5%" style="width: 0%;"></div>
+              </div>
+              <div class="bench-value mono" data-count="6.44" data-suffix=" MB/s">6.44 MB/s</div>
+            </div>
+
+            <div class="bench-row">
+              <div class="bench-label">
+                <span>Cellular only</span>
+                <span class="mono bench-id">BN-02</span>
+              </div>
+              <div class="bench-track">
+                <div class="bench-fill fill-cell anim-bar" data-width="19.4%" style="width: 0%;"></div>
+              </div>
+              <div class="bench-value mono" data-count="1.51" data-suffix=" MB/s">1.51 MB/s</div>
+            </div>
+
+            <div class="bench-row is-highlight">
+              <div class="bench-label">
+                <span>Boost combined</span>
+                <span class="mono bench-id">BN-03</span>
+              </div>
+              <div class="bench-track">
+                <div class="bench-fill-split anim-bar" data-width="100%" style="width: 0%;">
+                  <span class="fill-wifi" style="width: 83.1%;"></span>
+                  <span class="fill-cell" style="width: 16.9%;"></span>
+                </div>
+              </div>
+              <div class="bench-value mono" data-count="7.80" data-suffix=" MB/s">7.80 MB/s</div>
+            </div>
+          </div>
+
+          <div class="benchmark-summary">
+            <div class="stat-block">
+              <span class="stat-label">Aggregation efficiency</span>
+              <span class="stat-figure mono" data-count-int="98" data-suffix="%">98%</span>
+              <span class="stat-note">vs 7.95 MB/s radio sum</span>
+            </div>
+            <div class="stat-block">
+              <span class="stat-label">Gain over Wi-Fi only</span>
+              <span class="stat-figure mono" data-count-int="21" data-prefix="+" data-suffix="%">+21%</span>
+              <span class="stat-note">10.09 MB/s peak observed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="capabilities">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2>Built for large files on iOS</h2>
+          <p>Every subsystem is tuned for unreliable mobile links, slow USB flash drives, and background continuity.</p>
+        </div>
+
+        <div class="cap-grid">
+          <article class="cap-card cap-wide" data-reveal data-tilt>
+            <div class="cap-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                <circle cx="12" cy="20" r="1"></circle>
+              </svg>
+            </div>
+            <h3>Wi-Fi + Cellular Boost</h3>
+            <p>Splits HTTP Range downloads and libtorrent peer traffic across both interfaces simultaneously with connection reuse and automatic stalled-lane recovery.</p>
+          </article>
+
+          <article class="cap-card cap-wide" data-reveal data-tilt>
+            <div class="cap-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M12 7v5l3 3"></path>
+              </svg>
+            </div>
+            <h3>Native Libtorrent core</h3>
+            <p>Embedded C++ LibtorrentNative engine supporting magnet links, .torrent files, pause/resume, and buffered disk I/O.</p>
+          </article>
+
+          <article class="cap-card" data-reveal data-tilt>
+            <div class="cap-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                <path d="M9 9h6v6H9z"></path>
+              </svg>
+            </div>
+            <h3>External USB storage</h3>
+            <p>Stages downloads on fast internal APFS when space allows and exports sequentially to Lightning or USB-C drives without stalling.</p>
+          </article>
+
+          <article class="cap-card" data-reveal data-tilt>
+            <div class="cap-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <h3>In-app browser and Safari helper</h3>
+            <p>Includes a content-blocking browser with tab persistence plus Share Sheet and Safari Web Extensions to hand links straight to FlowDownload.</p>
+          </article>
+
+          <article class="cap-card" data-reveal data-tilt>
+            <div class="cap-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3>Automatic SHA-256 checksum verification</h3>
+            <p>Discovers companion .sha256 files or hashes pasted by the user and validates completed downloads before you move or install them.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2>Install on iOS</h2>
+          <p>Add the FlowDownload repository once for automatic updates, or download the signed/unsigned IPA directly.</p>
+        </div>
+
+        <div class="install-panel" data-reveal>
+          <div class="install-header">
+            <div class="install-tabs" role="tablist" aria-label="Sideload method">
+              <button type="button" class="install-tab is-active" data-install="sidestore" role="tab" aria-selected="true">SideStore</button>
+              <button type="button" class="install-tab" data-install="altstore" role="tab" aria-selected="false">AltStore</button>
+              <button type="button" class="install-tab" data-install="direct" role="tab" aria-selected="false">Direct IPA / TrollStore</button>
+            </div>
+
+            <div class="repo-url-bar">
+              <code class="mono" id="repoUrlText">https://YOUR_DOMAIN_OR_PAGES/source.json</code>
+              <button type="button" class="btn btn-copy" id="copyRepoBtn">Copy URL</button>
+            </div>
+          </div>
+
+          <div class="install-body">
+            <div class="install-pane is-active" data-pane="sidestore">
+              <ol class="steps-list">
+                <li>Install <strong>SideStore</strong> on your iPhone and enable WireGuard VPN refresh.</li>
+                <li>Tap <strong>Add to SideStore</strong> below, or copy the repo URL above into <em>Sources -&gt; +</em>.</li>
+                <li>Tap <strong>Get</strong> next to FlowDownload to install and receive future updates automatically.</li>
+              </ol>
+              <div class="install-cta-row">
+                <a class="btn btn-primary" id="paneSideStoreLink" href="#install">Add to SideStore</a>
+                <span class="mono release-meta" id="releaseMetaSideStore">Version 1.0.0 · 24.8 MB · iOS 16.0+</span>
+              </div>
+            </div>
+
+            <div class="install-pane" data-pane="altstore" hidden>
+              <ol class="steps-list">
+                <li>Open <strong>AltStore</strong> on your iPhone while AltServer is running on your PC or Mac.</li>
+                <li>Tap <strong>Add to AltStore</strong> below, or paste the repo URL into <em>Browse -&gt; Sources -&gt; +</em>.</li>
+                <li>Install FlowDownload and refresh wirelessly every 7 days over local Wi-Fi.</li>
+              </ol>
+              <div class="install-cta-row">
+                <a class="btn btn-primary" id="paneAltStoreLink" href="#install">Add to AltStore</a>
+                <span class="mono release-meta" id="releaseMetaAltStore">Version 1.0.0 · 24.8 MB · iOS 16.0+</span>
+              </div>
+            </div>
+
+            <div class="install-pane" data-pane="direct" hidden>
+              <ol class="steps-list">
+                <li>Download the latest <code>.ipa</code> package directly from the GitHub Releases mirror.</li>
+                <li>Open the file in <strong>TrollStore</strong> (permanent install) or sign it with <strong>Sideloadly</strong> / <strong>Feather</strong>.</li>
+                <li>Verify the release checksum before installing if downloading from a mirror.</li>
+              </ol>
+              <div class="install-cta-row">
+                <a class="btn btn-primary" id="paneDirectLink" href="#install">Download .IPA</a>
+                <span class="mono release-meta" id="releaseMetaDirect">Version 1.0.0 · 24.8 MB · iOS 16.0+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2>Questions</h2>
+        </div>
+
+        <div class="faq-list" data-reveal>
+          <details class="faq-item" open>
+            <summary>Why is FlowDownload distributed as an IPA instead of the App Store?</summary>
+            <p>Apple’s App Store Review Guidelines prohibit native torrent clients. Distributing via SideStore, AltStore, and direct IPA lets FlowDownload keep its embedded LibtorrentNative engine and external USB workflows intact.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does Wi-Fi + Cellular Boost work for all downloads?</summary>
+            <p>Boost works for torrents (splitting peer traffic across both interfaces) and for HTTP/HTTPS servers that support byte-range requests (<code>Accept-Ranges: bytes</code>). Servers without range support automatically use a single reliable stream.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How does external USB drive support avoid stalls?</summary>
+            <p>Slow Lightning and USB-C flash drives often pause mid-write. When internal storage has room, FlowDownload buffers on fast APFS first and exports sequentially to your USB drive, keeping network lanes at full speed.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does FlowDownload collect analytics or browsing history?</summary>
+            <p>No. Downloads, browser tabs, ad-block rules, and diagnostics stay locally on your device.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/app-icon.png" alt="" width="20" height="20">
+        <span>FlowDownload</span>
+      </div>
+      <div class="footer-links">
+        <a href="source.json">source.json</a>
+        <a href="https://github.com/Muhammad-Favel/FlowDownload-Releases/releases" target="_blank" rel="noopener">Releases</a>
+        <a href="#install">Install guide</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
