@@ -95,7 +95,7 @@
           </div>
 
           <p class="hero-note">
-            Also supports <a href="#install" class="text-link">AltStore</a> and <a href="#install" class="text-link">TrollStore</a> · Built for iPhone &amp; iPad
+            Also supports <a href="#install" class="text-link">AltStore</a>, <a href="#install" class="text-link">TrollStore</a>, and <a href="#install" class="text-link">Android (.APK)</a> · Built for iOS &amp; Android
           </p>
         </div>
 
@@ -419,8 +419,8 @@
     <section class="section" id="install">
       <div class="container">
         <div class="section-head" data-reveal>
-          <h2>Install on iOS</h2>
-          <p>Add the FlowDownload repository once for automatic updates, or download the IPA directly.</p>
+          <h2>Install on iOS &amp; Android</h2>
+          <p>Add the FlowDownload repository on iOS for automatic updates, or download the signed APK directly for Android.</p>
         </div>
 
         <div class="install-panel" data-reveal>
@@ -429,6 +429,7 @@
               <button type="button" class="install-tab is-active" data-install="sidestore" role="tab" aria-selected="true">SideStore</button>
               <button type="button" class="install-tab" data-install="altstore" role="tab" aria-selected="false">AltStore</button>
               <button type="button" class="install-tab" data-install="direct" role="tab" aria-selected="false">Direct IPA</button>
+              <button type="button" class="install-tab" data-install="android" role="tab" aria-selected="false">Android (.APK)</button>
             </div>
 
             <div class="repo-url-bar">
@@ -473,6 +474,18 @@
               <div class="install-cta-row">
                 <a class="btn btn-primary" id="paneDirectLink" href="#install">Download .IPA</a>
                 <span class="mono release-meta" id="releaseMetaDirect">Version 1.0.0 · 56.0 MB · iOS 16.0+</span>
+              </div>
+            </div>
+
+            <div class="install-pane" data-pane="android" hidden>
+              <ol class="steps-list">
+                <li>Download the signed <code>FlowDownload-v1.0.0.apk</code> directly from GitHub Releases.</li>
+                <li>Open the <code>.apk</code> on your Android device (enable <em>Install unknown apps</em> if prompted).</li>
+                <li>Verify SHA-256: <code>1cfd09f6e77b1cc5535071409a6d990301a0aee9a2cd06a30d9ac12d16ac0e29</code>.</li>
+              </ol>
+              <div class="install-cta-row">
+                <a class="btn btn-primary" id="paneAndroidLink" href="https://github.com/Muhammad-Favel/FlowDownload-Releases/releases/download/v1.0.0/FlowDownload-v1.0.0.apk">Download .APK</a>
+                <span class="mono release-meta" id="releaseMetaAndroid">Version 1.0.0 · 26.2 MB · Android 8.0+ (arm64 &amp; x86_64)</span>
               </div>
             </div>
           </div>
