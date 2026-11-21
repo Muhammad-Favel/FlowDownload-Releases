@@ -70,13 +70,13 @@
         <div class="hero-copy">
           <div class="version-meta">
             <span class="dual-dot" aria-hidden="true"><i class="dot-wifi"></i><i class="dot-cell"></i></span>
-            <span class="mono" id="heroVersion">v1.0.0 · iOS 16+ · IPA</span>
+            <span class="mono" id="heroVersion">v1.0.0 · iOS (.IPA) &amp; Android (.APK)</span>
           </div>
 
-          <h1>Bond Wi-Fi and Cellular on iOS</h1>
+          <h1>Bond Wi-Fi and Cellular on iOS &amp; Android</h1>
 
           <p class="hero-subhead">
-            Combine both radios for faster HTTP and torrent downloads, buffer large files on APFS before exporting to external USB drives, and verify SHA-256 checksums automatically.
+            Two dedicated native apps — SwiftUI for iOS (<code>.ipa</code>) and Jetpack Compose Material 3 for Android (<code>.apk</code>). Combine both radios for faster HTTP and torrent downloads, export to external USB drives, and verify SHA-256 checksums automatically.
           </p>
 
           <div class="hero-actions">
@@ -86,16 +86,20 @@
                 <path d="m7 10 5 5 5-5"></path>
                 <path d="M5 21h14"></path>
               </svg>
-              <span>Add to SideStore</span>
+              <span>iOS · Add to SideStore</span>
             </a>
             <a class="btn btn-secondary" id="directIpaBtn" href="#install">
-              <span>Download IPA</span>
+              <span>iOS IPA</span>
               <span class="mono btn-meta" id="heroSize">56.0 MB</span>
+            </a>
+            <a class="btn btn-secondary" id="directApkBtn" href="https://github.com/Muhammad-Favel/FlowDownload-Releases/releases/download/v1.0.0/FlowDownload-v1.0.0.apk">
+              <span>Android APK</span>
+              <span class="mono btn-meta">26.4 MB</span>
             </a>
           </div>
 
           <p class="hero-note">
-            Also supports <a href="#install" class="text-link">AltStore</a>, <a href="#install" class="text-link">TrollStore</a>, and <a href="#install" class="text-link">Android (.APK)</a> · Built for iOS &amp; Android
+            Two standalone builds: <a href="#install-ios" class="text-link">FlowDownload for iOS</a> (SideStore / AltStore / TrollStore) &amp; <a href="#install-android" class="text-link">FlowDownload for Android</a> (Direct APK)
           </p>
         </div>
 
@@ -419,17 +423,16 @@
     <section class="section" id="install">
       <div class="container">
         <div class="section-head" data-reveal>
-          <h2>Install on iOS &amp; Android</h2>
-          <p>Add the FlowDownload repository on iOS for automatic updates, or download the signed APK directly for Android.</p>
+          <h2>Two Native Apps — iOS &amp; Android</h2>
+          <p>Download the separate native app built specifically for your platform: SwiftUI (<code>.ipa</code>) for iPhone/iPad or Jetpack Compose Material 3 (<code>.apk</code>) for Android.</p>
         </div>
 
-        <div class="install-panel" data-reveal>
+        <div class="install-panel" id="install-ios" data-reveal>
           <div class="install-header">
-            <div class="install-tabs" role="tablist" aria-label="Sideload method">
-              <button type="button" class="install-tab is-active" data-install="sidestore" role="tab" aria-selected="true">SideStore</button>
-              <button type="button" class="install-tab" data-install="altstore" role="tab" aria-selected="false">AltStore</button>
-              <button type="button" class="install-tab" data-install="direct" role="tab" aria-selected="false">Direct IPA</button>
-              <button type="button" class="install-tab" data-install="android" role="tab" aria-selected="false">Android (.APK)</button>
+            <div class="install-tabs" role="tablist" aria-label="iOS sideload method">
+              <button type="button" class="install-tab is-active" data-install="sidestore" role="tab" aria-selected="true">iOS · SideStore</button>
+              <button type="button" class="install-tab" data-install="altstore" role="tab" aria-selected="false">iOS · AltStore</button>
+              <button type="button" class="install-tab" data-install="direct" role="tab" aria-selected="false">iOS · Direct IPA</button>
             </div>
 
             <div class="repo-url-bar">
@@ -476,17 +479,31 @@
                 <span class="mono release-meta" id="releaseMetaDirect">Version 1.0.0 · 56.0 MB · iOS 16.0+</span>
               </div>
             </div>
+          </div>
+        </div>
 
-            <div class="install-pane" data-pane="android" hidden>
+        <div class="install-panel" id="install-android" style="margin-top: 24px;" data-reveal>
+          <div class="install-header">
+            <div class="install-tabs" aria-label="Android APK">
+              <span class="install-tab is-active">FlowDownload for Android (.APK)</span>
+            </div>
+            <div class="repo-url-bar">
+              <code class="mono">Native Kotlin + Jetpack Compose Material 3 + NDK libtorrent</code>
+            </div>
+          </div>
+
+          <div class="install-body">
+            <div class="install-pane is-active">
               <ol class="steps-list">
-                <li>Download the signed <code>FlowDownload-v1.0.0.apk</code> directly from GitHub Releases.</li>
-                <li>Open the <code>.apk</code> on your Android device (enable <em>Install unknown apps</em> if prompted).</li>
+                <li>Download the signed <code>FlowDownload-v1.0.0.apk</code> built separately for Android (<code>arm64-v8a</code> &amp; <code>x86_64</code>).</li>
+                <li>Open the <code>.apk</code> on your Android phone or tablet (enable <em>Install unknown apps</em> if prompted).</li>
                 <li>Verify SHA-256: <code>f79abc2f18d80419d4081728ede0f6ed8432c0f83838cee5210a40b4675434f1</code>.</li>
               </ol>
               <div class="install-cta-row">
-                <a class="btn btn-primary" id="paneAndroidLink" href="https://github.com/Muhammad-Favel/FlowDownload-Releases/releases/download/v1.0.0/FlowDownload-v1.0.0.apk">Download .APK</a>
+                <a class="btn btn-primary" id="paneAndroidLink" href="https://github.com/Muhammad-Favel/FlowDownload-Releases/releases/download/v1.0.0/FlowDownload-v1.0.0.apk">Download Android .APK</a>
                 <span class="mono release-meta" id="releaseMetaAndroid">Version 1.0.0 · 26.4 MB · Android 8.0+ (arm64 &amp; x86_64)</span>
               </div>
+              <p class="install-hint">Separate native Android app with <code>ConnectivityManager</code> Wi-Fi + Cellular Boost, SAF USB OTG export, AdGuard WebView browser, and NDK <code>libtorrent</code>.</p>
             </div>
           </div>
         </div>

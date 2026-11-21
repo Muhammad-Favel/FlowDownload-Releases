@@ -50,7 +50,7 @@
       if (!latest) return;
 
       const sizeLabel = formatBytes(latest.size);
-      const versionLabel = `v${latest.version} · iOS ${latest.minOSVersion || "16.0"}+ · IPA`;
+      const versionLabel = `v${latest.version} · iOS (.IPA) & Android (.APK)`;
 
       const heroVersion = document.getElementById("heroVersion");
       const heroSize = document.getElementById("heroSize");
