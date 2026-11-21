@@ -16,6 +16,13 @@
         img.setAttribute("src", nextSrc);
       }
     });
+    const nextFavicon = theme === "light" ? "assets/favicon.png?v=3" : "assets/favicon-dark.png?v=3";
+    ["faviconIcon", "faviconShortcut"].forEach((id) => {
+      const link = document.getElementById(id);
+      if (link && link.getAttribute("href") !== nextFavicon) {
+        link.setAttribute("href", nextFavicon);
+      }
+    });
   };
   const savedTheme = localStorage.getItem("flowdownload-theme");
   const preferredTheme =
