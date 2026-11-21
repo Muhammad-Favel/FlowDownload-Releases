@@ -74,16 +74,12 @@
       const altstoreHref = `altstore://source?url=${encodeURIComponent(repoURL)}`;
       const ipaHref = latest.downloadURL || "#install";
 
-      const sidestoreBtn = document.getElementById("sidestoreBtn");
-      const directIpaBtn = document.getElementById("directIpaBtn");
       const paneSideStoreLink = document.getElementById("paneSideStoreLink");
       const paneAltStoreLink = document.getElementById("paneAltStoreLink");
       const paneDirectLink = document.getElementById("paneDirectLink");
 
-      if (sidestoreBtn) sidestoreBtn.href = sidestoreHref;
       if (paneSideStoreLink) paneSideStoreLink.href = sidestoreHref;
       if (paneAltStoreLink) paneAltStoreLink.href = altstoreHref;
-      if (directIpaBtn) directIpaBtn.href = ipaHref;
       if (paneDirectLink) paneDirectLink.href = ipaHref;
     })
     .catch(() => {});
@@ -201,16 +197,19 @@
     });
   });
 
-  // Install method tabs
-  document.querySelectorAll(".install-tab").forEach((tab) => {
+  // Install method tabs (scoped per .install-panel so iOS tabs never hide Android)
+  document.querySelectorAll(".install-tab[data-install]").forEach((tab) => {
     tab.addEventListener("click", () => {
       const target = tab.dataset.install;
-      document.querySelectorAll(".install-tab").forEach((btn) => {
+      const panel = tab.closest(".install-panel");
+      if (!panel) return;
+
+      panel.querySelectorAll(".install-tab[data-install]").forEach((btn) => {
         const active = btn === tab;
         btn.classList.toggle("is-active", active);
         btn.setAttribute("aria-selected", String(active));
       });
-      document.querySelectorAll(".install-pane").forEach((pane) => {
+      panel.querySelectorAll(".install-pane[data-pane]").forEach((pane) => {
         const match = pane.dataset.pane === target;
         pane.hidden = !match;
         pane.classList.toggle("is-active", match);
