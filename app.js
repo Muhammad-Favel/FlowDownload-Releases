@@ -57,7 +57,7 @@
       if (!latest) return;
 
       const sizeLabel = formatBytes(latest.size);
-      const versionLabel = `v${latest.version} · iOS (.IPA) & Android (.APK)`;
+      const versionLabel = `v${latest.version}`;
 
       const heroVersion = document.getElementById("heroVersion");
       const heroSize = document.getElementById("heroSize");
@@ -115,23 +115,6 @@
   } else {
     revealNodes.forEach((el) => el.classList.add("is-visible"));
     animateBenchmark();
-  }
-
-  // Interactive 3D Hero Stage pointer tilt (desktop)
-  const heroStage = document.getElementById("heroStage");
-  const stage3d = document.getElementById("stage3d");
-  if (heroStage && stage3d && window.matchMedia("(pointer: fine)").matches) {
-    heroStage.addEventListener("mousemove", (e) => {
-      const rect = heroStage.getBoundingClientRect();
-      const nx = (e.clientX - rect.left) / rect.width - 0.5;
-      const ny = (e.clientY - rect.top) / rect.height - 0.5;
-      stage3d.style.setProperty("--rx", `${(-nx * 9).toFixed(2)}deg`);
-      stage3d.style.setProperty("--ry", `${(ny * 7).toFixed(2)}deg`);
-    });
-    heroStage.addEventListener("mouseleave", () => {
-      stage3d.style.setProperty("--rx", "-5deg");
-      stage3d.style.setProperty("--ry", "3deg");
-    });
   }
 
   // Mobile nav toggle
