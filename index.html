@@ -387,7 +387,8 @@
         <div class="install-panel" id="install-ios" data-reveal>
           <div class="install-header">
             <div class="install-tabs" role="tablist" aria-label="iOS sideload method">
-              <button type="button" class="install-tab is-active" data-install="sidestore" role="tab" aria-selected="true">iOS · SideStore</button>
+              <button type="button" class="install-tab is-active" data-install="usb" role="tab" aria-selected="true">iOS · Desktop USB</button>
+              <button type="button" class="install-tab" data-install="sidestore" role="tab" aria-selected="false">iOS · SideStore</button>
               <button type="button" class="install-tab" data-install="altstore" role="tab" aria-selected="false">iOS · AltStore</button>
               <button type="button" class="install-tab" data-install="direct" role="tab" aria-selected="false">iOS · Direct IPA</button>
             </div>
@@ -399,7 +400,21 @@
           </div>
 
           <div class="install-body">
-            <div class="install-pane is-active" data-pane="sidestore">
+            <div class="install-pane is-active" data-pane="usb">
+              <ol class="steps-list">
+                <li>Download <strong>FlowDownload Installer</strong> for Windows or macOS and connect your iPhone via USB.</li>
+                <li>Choose an App ID profile (<strong>Full</strong> 3 IDs, <strong>Share Only</strong> 2 IDs, or <strong>Core</strong> 1 ID) and sign in with your Apple ID.</li>
+                <li>Refresh every 7 days over USB without deleting FlowDownload to keep all downloads, torrents, and browser tabs.</li>
+              </ol>
+              <div class="install-cta-row">
+                <a class="btn btn-primary" id="paneUsbWinLink" href="https://github.com/Muhammad-Favel/FlowDownload-Installer/releases/download/v0.1.0/FlowDownload-Installer-v0.1.0-windows-x64.exe">Windows (.EXE)</a>
+                <a class="btn btn-secondary" id="paneUsbMacLink" href="https://github.com/Muhammad-Favel/FlowDownload-Installer/releases/download/v0.1.0/FlowDownload-Installer-v0.1.0-macos-arm64.dmg">macOS (.DMG)</a>
+                <span class="mono release-meta">Installer v0.1.0 · Downloads latest IPA automatically</span>
+              </div>
+              <p class="install-hint">Windows requires Apple Devices or iTunes installed for USB drivers. <a href="https://github.com/Muhammad-Favel/FlowDownload-Installer/releases/tag/v0.1.0" target="_blank" rel="noopener" class="text-link">All installer downloads (.MSI / source)</a>.</p>
+            </div>
+
+            <div class="install-pane" data-pane="sidestore" hidden>
               <ol class="steps-list">
                 <li>Install <strong>SideStore</strong> on your iPhone and connect <strong>LocalDevVPN</strong>.</li>
                 <li>Tap <strong>Add to SideStore</strong> below, or tap <strong>Copy URL</strong> above and add it under <em>Sources -&gt; +</em>.</li>
