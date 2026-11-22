@@ -88,13 +88,9 @@
 
 ## Screenshots
 
-<p align="center">
-  <img src="assets/screenshots/boost-direct.jpg" alt="Direct Boost 13.9 MB/s" width="168" />
-  <img src="assets/screenshots/boost-torrent.jpg" alt="Torrent Boost 70 peers" width="168" />
-  <img src="assets/screenshots/browser.jpg" alt="Flow Browser with AdGuard" width="168" />
-  <img src="assets/screenshots/settings-storage.jpg" alt="Storage and USB settings" width="168" />
-  <img src="assets/screenshots/file-verified.jpg" alt="SHA-256 Verified at completion" width="168" />
-</p>
+| Direct Boost (`13.9 MB/s`) | Torrent Boost (`70 peers`) | Flow Browser (`AdGuard`) | Storage & USB | SHA-256 Verified |
+| :---: | :---: | :---: | :---: | :---: |
+| <img src="assets/screenshots/boost-direct.jpg" alt="Direct Boost 13.9 MB/s" width="148" /> | <img src="assets/screenshots/boost-torrent.jpg" alt="Torrent Boost 70 peers" width="148" /> | <img src="assets/screenshots/browser.jpg" alt="Flow Browser with AdGuard" width="148" /> | <img src="assets/screenshots/settings-storage.jpg" alt="Storage and USB settings" width="148" /> | <img src="assets/screenshots/file-verified.jpg" alt="SHA-256 Verified at completion" width="148" /> |
 
 ---
 
