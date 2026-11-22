@@ -128,11 +128,11 @@ flowchart LR
 
 ## Measured Boost Benchmark (`BN-01` – `BN-03`, iPhone 12 Pro)
 
-| Test ID | Transport Mode | Avg Speed | Peak / Efficiency |
-| :---: | :--- | :---: | :--- |
-| `BN-01` | Wi-Fi Only | `6.44 MB/s` | `8.14 MB/s` steady-state · `10.44 MB/s` peak |
-| `BN-02` | Cellular Only | `1.51 MB/s` | `4.12 MB/s` peak |
-| `BN-03` | **Boost (Wi-Fi + Cellular)** | **`7.80 MB/s`** | **98% of combined radio sum (`+21%` vs Wi-Fi, `10.09 MB/s` peak)** |
+| Test&nbsp;ID | Transport Mode | Avg&nbsp;Speed | Peak / Efficiency |
+| :--- | :--- | :---: | :--- |
+| `BN&#8209;01` | Wi-Fi Only | `6.44`&nbsp;MB/s | `8.14`&nbsp;MB/s steady-state · `10.44`&nbsp;MB/s peak |
+| `BN&#8209;02` | Cellular Only | `1.51`&nbsp;MB/s | `4.12`&nbsp;MB/s peak |
+| `BN&#8209;03` | **Boost (Wi-Fi + Cellular)** | **`7.80`**&nbsp;MB/s | **98% radio sum (`+21%` vs Wi-Fi · `10.09`&nbsp;MB/s peak)** |
 
 ---
 
