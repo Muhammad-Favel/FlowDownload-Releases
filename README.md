@@ -31,6 +31,13 @@
   <a href="https://github.com/Muhammad-Favel/FlowDownload-Releases/issues">Report an Issue</a>
 </p>
 
+<p align="center">
+  <img src="assets/flowdownload-demo.gif" alt="FlowDownload 30-second demo: Wi-Fi vs Boost, Libtorrent, USB export, and 1-click Desktop Installer" width="860" />
+</p>
+<p align="center">
+  <a href="https://muhammad-favel.github.io/FlowDownload-Releases/assets/flowdownload-demo.mp4">Watch 1080p MP4 (30s)</a>
+</p>
+
 ---
 
 ## Install
