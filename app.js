@@ -38,12 +38,6 @@
     });
   }
 
-  const repoURL = new URL("source.json", window.location.href).href;
-  const repoUrlText = document.getElementById("repoUrlText");
-  if (repoUrlText) {
-    repoUrlText.textContent = repoURL;
-  }
-
   const formatBytes = (bytes) => {
     if (!bytes || Number.isNaN(bytes)) return "56.0 MB";
     return `${(bytes / 1_000_000).toFixed(1)} MB`;
@@ -65,21 +59,11 @@
       if (heroSize) heroSize.textContent = sizeLabel;
 
       const metaText = `Version ${latest.version} · ${sizeLabel} · iOS ${latest.minOSVersion || "16.0"}+`;
-      ["releaseMetaSideStore", "releaseMetaAltStore", "releaseMetaDirect"].forEach((id) => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = metaText;
-      });
+      const releaseMetaDirect = document.getElementById("releaseMetaDirect");
+      if (releaseMetaDirect) releaseMetaDirect.textContent = metaText;
 
-      const sidestoreHref = `sidestore://source?url=${encodeURIComponent(repoURL)}`;
-      const altstoreHref = `altstore://source?url=${encodeURIComponent(repoURL)}`;
       const ipaHref = latest.downloadURL || "#install";
-
-      const paneSideStoreLink = document.getElementById("paneSideStoreLink");
-      const paneAltStoreLink = document.getElementById("paneAltStoreLink");
       const paneDirectLink = document.getElementById("paneDirectLink");
-
-      if (paneSideStoreLink) paneSideStoreLink.href = sidestoreHref;
-      if (paneAltStoreLink) paneAltStoreLink.href = altstoreHref;
       if (paneDirectLink) paneDirectLink.href = ipaHref;
     })
     .catch(() => {});
@@ -217,19 +201,4 @@
     });
   });
 
-  // Copy repo URL
-  const copyBtn = document.getElementById("copyRepoBtn");
-  if (copyBtn) {
-    copyBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(repoURL);
-        copyBtn.textContent = "Copied";
-        setTimeout(() => {
-          copyBtn.textContent = "Copy URL";
-        }, 1600);
-      } catch {
-        copyBtn.textContent = "Copy manually";
-      }
-    });
-  }
 })();

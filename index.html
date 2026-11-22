@@ -76,7 +76,7 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" id="sidestoreBtn" href="#install">
+            <a class="btn btn-primary" id="heroDownloadBtn" href="#install">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 3v12"></path>
                 <path d="m7 10 5 5 5-5"></path>
@@ -386,16 +386,13 @@
 
         <div class="install-panel" id="install-ios" data-reveal>
           <div class="install-header">
-            <div class="install-tabs" role="tablist" aria-label="iOS sideload method">
+            <div class="install-tabs" role="tablist" aria-label="iOS install method">
               <button type="button" class="install-tab is-active" data-install="usb" role="tab" aria-selected="true">iOS · Desktop USB</button>
-              <button type="button" class="install-tab" data-install="sidestore" role="tab" aria-selected="false">iOS · SideStore</button>
-              <button type="button" class="install-tab" data-install="altstore" role="tab" aria-selected="false">iOS · AltStore</button>
               <button type="button" class="install-tab" data-install="direct" role="tab" aria-selected="false">iOS · Direct IPA</button>
             </div>
 
             <div class="repo-url-bar">
-              <code class="mono" id="repoUrlText">https://muhammad-favel.github.io/FlowDownload-Releases/source.json</code>
-              <button type="button" class="btn btn-copy" id="copyRepoBtn">Copy URL</button>
+              <code class="mono">SwiftUI + LibtorrentNative · iOS 16.0+</code>
             </div>
           </div>
 
@@ -412,32 +409,6 @@
                 <span class="mono release-meta">Installer v0.1.0 · Downloads latest IPA automatically</span>
               </div>
               <p class="install-hint">Windows requires Apple Devices or iTunes installed for USB drivers. <a href="https://github.com/Muhammad-Favel/FlowDownload-Installer/releases/tag/v0.1.0" target="_blank" rel="noopener" class="text-link">All installer downloads (.MSI / source)</a>.</p>
-            </div>
-
-            <div class="install-pane" data-pane="sidestore" hidden>
-              <ol class="steps-list">
-                <li>Install <strong>SideStore</strong> on your iPhone and connect <strong>LocalDevVPN</strong>.</li>
-                <li>Tap <strong>Add to SideStore</strong> below, or tap <strong>Copy URL</strong> above and add it under <em>Sources -&gt; +</em>.</li>
-                <li>Tap <strong>Get</strong> next to FlowDownload to install and receive future updates automatically.</li>
-              </ol>
-              <div class="install-cta-row">
-                <a class="btn btn-primary" id="paneSideStoreLink" href="#install">Add to SideStore</a>
-                <span class="mono release-meta" id="releaseMetaSideStore">Version 1.0.0 · 56.0 MB · iOS 16.0+</span>
-              </div>
-              <p class="install-hint">Requires SideStore installed on your iPhone (if Safari says invalid address, install SideStore first or use Copy URL above).</p>
-            </div>
-
-            <div class="install-pane" data-pane="altstore" hidden>
-              <ol class="steps-list">
-                <li>Open <strong>AltStore</strong> on your iPhone while AltServer is running on your PC or Mac.</li>
-                <li>Tap <strong>Add to AltStore</strong> below, or paste the repo URL into <em>Browse -&gt; Sources -&gt; +</em>.</li>
-                <li>Install FlowDownload and refresh wirelessly every 7 days over local Wi-Fi.</li>
-              </ol>
-              <div class="install-cta-row">
-                <a class="btn btn-primary" id="paneAltStoreLink" href="#install">Add to AltStore</a>
-                <span class="mono release-meta" id="releaseMetaAltStore">Version 1.0.0 · 56.0 MB · iOS 16.0+</span>
-              </div>
-              <p class="install-hint">Requires AltStore installed on your iPhone (if Safari says invalid address, install AltStore first or use Copy URL above).</p>
             </div>
 
             <div class="install-pane" data-pane="direct" hidden>
@@ -491,7 +462,7 @@
         <div class="faq-list" data-reveal>
           <details class="faq-item" open>
             <summary>Why is FlowDownload distributed as an IPA instead of the App Store?</summary>
-            <p>Apple’s App Store Review Guidelines prohibit native torrent clients. Distributing via SideStore, AltStore, and direct IPA lets FlowDownload keep its embedded LibtorrentNative engine and external USB workflows intact.</p>
+            <p>Apple’s App Store Review Guidelines prohibit native torrent clients. Distributing via FlowDownload Desktop USB Installer and direct IPA lets FlowDownload keep its embedded LibtorrentNative engine and external USB workflows intact.</p>
           </details>
 
           <details class="faq-item">

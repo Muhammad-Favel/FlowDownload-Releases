@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://muhammad-favel.github.io/FlowDownload-Releases/">Website</a> ·
-  <a href="https://muhammad-favel.github.io/FlowDownload-Releases/source.json">SideStore / AltStore Source</a> ·
+  <a href="https://github.com/Muhammad-Favel/FlowDownload-Installer/releases">Desktop USB Installer</a> ·
   <a href="https://github.com/Muhammad-Favel/FlowDownload-Releases/releases">Releases</a> ·
   <a href="https://github.com/Muhammad-Favel/FlowDownload-Releases/issues">Report an Issue</a>
 </p>
@@ -19,11 +19,7 @@
 
 ## Install on iOS
 
-- **Website (1-tap SideStore / AltStore):** [muhammad-favel.github.io/FlowDownload-Releases](https://muhammad-favel.github.io/FlowDownload-Releases/)
-- **Repository URL (copy into SideStore or AltStore):**
-  ```text
-  https://muhammad-favel.github.io/FlowDownload-Releases/source.json
-  ```
+- **Desktop USB Installer (Windows & macOS):** Download from [FlowDownload-Installer Releases](https://github.com/Muhammad-Favel/FlowDownload-Installer/releases).
 - **Direct `.ipa` (TrollStore / Sideloadly / Feather):** Download from [GitHub Releases](https://github.com/Muhammad-Favel/FlowDownload-Releases/releases).
 
 ---
