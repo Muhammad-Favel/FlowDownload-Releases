@@ -24,7 +24,7 @@
 
 <p align="center">
   <a href="https://muhammad-favel.github.io/FlowDownload-Releases/">Website</a> ·
-  <a href="#install">Install</a> ·
+  <a href="#how-to-install">Install</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#how-boost-works">Architecture</a> ·
   <a href="#measured-boost-benchmark-bn-01--bn-03-iphone-12-pro">Benchmark</a> ·
@@ -40,18 +40,40 @@
 
 ---
 
-## Install
+## How to Install
 
 | Platform | Method | Package | Size | Direct Link |
 | :--- | :--- | :--- | :---: | :--- |
-| **iOS** (`16.0+`) | **Desktop USB Installer** (Windows) | `.exe` | `5.3 MB` | [Download Windows Installer](https://github.com/Muhammad-Favel/FlowDownload-Installer/releases/download/v0.1.0/FlowDownload-Installer-v0.1.0-windows-x64.exe) |
+| **iOS** (`16.0+`) | **Desktop USB Installer** (Windows) | `.exe` / `.msi` | `5.3 MB` | [Download Windows Installer](https://github.com/Muhammad-Favel/FlowDownload-Installer/releases/download/v0.1.0/FlowDownload-Installer-v0.1.0-windows-x64.exe) |
 | **iOS** (`16.0+`) | **Desktop USB Installer** (macOS) | `.dmg` | `7.6 MB` | [Download macOS Installer](https://github.com/Muhammad-Favel/FlowDownload-Installer/releases/download/v0.1.0/FlowDownload-Installer-v0.1.0-macos-arm64.dmg) |
 | **iOS** (`16.0+`) | **Direct IPA** (TrollStore / Sideloadly / Feather) | `.ipa` | `56.0 MB` | [Download FlowDownload-v1.0.0.ipa](https://github.com/Muhammad-Favel/FlowDownload-Releases/releases/download/v1.0.0/FlowDownload-v1.0.0.ipa) |
 | **Android** (`8.0+`) | **Direct APK** (`arm64-v8a` &amp; `x86_64`) | `.apk` | `26.4 MB` | [Download FlowDownload-v1.0.0.apk](https://github.com/Muhammad-Favel/FlowDownload-Releases/releases/download/v1.0.0/FlowDownload-v1.0.0.apk) |
 
-### iOS Desktop USB Installer & 3-App-ID Budget
+### 1. iOS via Windows (Desktop USB Installer)
+1. Ensure **Apple Devices** (or iTunes) is installed on Windows for Apple USB driver support.
+2. Download and run [FlowDownload-Installer-v0.1.0-windows-x64.exe](https://github.com/Muhammad-Favel/FlowDownload-Installer/releases/download/v0.1.0/FlowDownload-Installer-v0.1.0-windows-x64.exe) (or `.msi` from [Installer Releases](https://github.com/Muhammad-Favel/FlowDownload-Installer/releases/tag/v0.1.0)).
+3. Connect your iPhone via USB and tap **Trust This Computer**.
+4. Pick an App ID profile (**Full**, **Share Only**, or **Core**), sign in with your Apple ID + 6-digit 2FA code, and wait for installation to finish.
+5. On first sideload: enable **Developer Mode** (*Settings → Privacy & Security → Developer Mode*) and trust your Apple ID (*Settings → General → VPN & Device Management*).
 
-[FlowDownload Installer](https://github.com/Muhammad-Favel/FlowDownload-Installer) downloads the latest `.ipa`, signs it with your Apple ID via Anisette v3, tracks your **7-day signature** for in-place USB refresh without losing app data, and lets you choose an App ID budget:
+### 2. iOS via macOS (Desktop USB Installer)
+1. Download [FlowDownload-Installer-v0.1.0-macos-arm64.dmg](https://github.com/Muhammad-Favel/FlowDownload-Installer/releases/download/v0.1.0/FlowDownload-Installer-v0.1.0-macos-arm64.dmg) and drag **FlowDownload Installer** to Applications.
+2. Connect your iPhone via USB and tap **Trust This Computer**.
+3. Pick an App ID profile (**Full**, **Share Only**, or **Core**), sign in with your Apple ID + 6-digit 2FA code, and install.
+4. On first sideload: enable **Developer Mode** and trust your Apple ID in *Settings → General → VPN & Device Management*.
+
+### 3. iOS via Direct `.ipa` (TrollStore / Sideloadly / Feather)
+1. Download [FlowDownload-v1.0.0.ipa](https://github.com/Muhammad-Favel/FlowDownload-Releases/releases/download/v1.0.0/FlowDownload-v1.0.0.ipa).
+2. Open the `.ipa` in **TrollStore** (permanent install on supported iOS versions) or sign with **Sideloadly** / **Feather**.
+
+### 4. Android (Direct `.apk`)
+1. Download [FlowDownload-v1.0.0.apk](https://github.com/Muhammad-Favel/FlowDownload-Releases/releases/download/v1.0.0/FlowDownload-v1.0.0.apk) (`arm64-v8a` &amp; `x86_64`, Android 8.0+).
+2. Open the `.apk` on your Android device and allow *Install unknown apps* if prompted.
+3. Optional SHA-256 check: `f79abc2f18d80419d4081728ede0f6ed8432c0f83838cee5210a40b4675434f1`.
+
+### iOS 3-App-ID Budget & 7-Day Refresh
+
+[FlowDownload Installer](https://github.com/Muhammad-Favel/FlowDownload-Installer) tracks your **7-day signature** for in-place USB refresh without losing app data, and lets you choose an App ID budget:
 
 | Profile | App IDs | Included | Trade-Off |
 | :--- | :---: | :--- | :--- |
