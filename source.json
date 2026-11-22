@@ -31,11 +31,11 @@
           "version": "1.0.0",
           "buildVersion": "1",
           "date": "2026-11-20",
-          "size": 56017334,
-          "sha256": "a2892a1fa9cbe204155e6aa643c2b2a5755a78bb0c4dbfee859f59cdbb0845eb",
+          "size": 56077614,
+          "sha256": "be6b28343cf5f502cdc0bebe5e6a170f5fe5c71ecb011dd5d42571c28f09e5b6",
           "downloadURL": "https://github.com/Muhammad-Favel/FlowDownload-Releases/releases/download/v1.0.0/FlowDownload-v1.0.0.ipa",
           "localizedDescription": "Initial release with Wi-Fi + Cellular Boost (98% measured aggregation efficiency), LibtorrentNative C++ engine, APFS-staged external USB export, Safari & Share extensions, and SHA-256 verification.",
-          "minOSVersion": "16.0"
+          "minOSVersion": "17.0"
         }
       ],
       "appPermissions": {
