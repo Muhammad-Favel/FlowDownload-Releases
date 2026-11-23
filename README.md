@@ -46,7 +46,7 @@
 | :--- | :--- | :--- | :---: | :--- |
 | **iOS** (`17.0+`) | **Desktop USB Installer** (Windows) | `.exe` / `.msi` | `5.3 MB` | [Download Windows Installer](https://github.com/Muhammad-Favel/FlowDownload-Installer/releases/download/v0.1.0/FlowDownload-Installer-v0.1.0-windows-x64.exe) |
 | **iOS** (`17.0+`) | **Desktop USB Installer** (macOS) | `.dmg` | `7.6 MB` | [Download macOS Installer](https://github.com/Muhammad-Favel/FlowDownload-Installer/releases/download/v0.1.0/FlowDownload-Installer-v0.1.0-macos-arm64.dmg) |
-| **iOS** (`17.0+`) | **Direct IPA** (TrollStore / Sideloadly / Feather) | `.ipa` | `56.1 MB` | [Download FlowDownload-v1.0.0.ipa](https://github.com/Muhammad-Favel/FlowDownload-Releases/releases/download/v1.0.0/FlowDownload-v1.0.0.ipa) |
+| **iOS** (`17.0+`) | **Direct IPA** (TrollStore / Sideloadly / Feather) | `.ipa` | `12.6 MB` | [Download FlowDownload-v1.0.0.ipa](https://github.com/Muhammad-Favel/FlowDownload-Releases/releases/download/v1.0.0/FlowDownload-v1.0.0.ipa) |
 | **Android** (`8.0+`) | **Direct APK** (`arm64-v8a` &amp; `x86_64`) | `.apk` | `26.4 MB` | [Download FlowDownload-v1.0.0.apk](https://github.com/Muhammad-Favel/FlowDownload-Releases/releases/download/v1.0.0/FlowDownload-v1.0.0.apk) |
 
 ### 1. iOS via Windows (Desktop USB Installer)
