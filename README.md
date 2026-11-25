@@ -132,6 +132,12 @@ flowchart LR
 
 ---
 
+## Contributors
+
+- **Google Antigravity** (Google DeepMind) — Official Contributor
+
+---
+
 ## Privacy & Verification
 
 - **No telemetry or analytics:** Downloads, browser tabs, AdGuard rules, and diagnostics stay strictly on-device.
