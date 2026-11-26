@@ -33,10 +33,10 @@
 </p>
 
 <p align="center">
-  <img src="assets/flowdownload-demo.gif" alt="FlowDownload 30-second demo: Wi-Fi vs Boost, Libtorrent, USB export, and 1-click Desktop Installer" width="860" />
+  <img src="assets/flowdownload-demo.gif" alt="FlowDownload 2-minute motion-graphics overview: Wi-Fi + Cellular Boost, Libtorrent, USB-C export, iPhone Duo, and 1-click Desktop Installer" width="860" />
 </p>
 <p align="center">
-  <a href="https://muhammad-favel.github.io/FlowDownload-Releases/assets/flowdownload-demo.mp4">Watch 1080p MP4 (30s)</a>
+  <a href="https://muhammad-favel.github.io/FlowDownload-Releases/assets/FlowDownload-Infographic-Pro-2m.mp4">Watch 1080p MP4 with Voiceover &amp; SFX (2m 00s)</a>
 </p>
 
 ---
